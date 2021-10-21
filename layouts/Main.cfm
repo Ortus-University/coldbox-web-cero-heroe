@@ -53,6 +53,9 @@
 		</nav> <!---end navbar --->
 
 		<!---Container And Views --->
+		<div class="badge badge-info">
+			#getSetting( "environment" )#
+		</div>
 		<div class="container">#renderView()#</div>
 
 		<footer class="border-top py-3 mt-5">

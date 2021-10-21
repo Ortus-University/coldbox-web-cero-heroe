@@ -1,5 +1,8 @@
 {
     "web":{
+        "http":{
+            "port":"42518"
+        },
         "rewrites":{
             "enable":"true"
         }

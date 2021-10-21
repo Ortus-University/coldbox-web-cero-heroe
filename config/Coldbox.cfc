@@ -15,7 +15,7 @@
 		 */
 		coldbox = {
 			// Application Setup
-			appName                  : getSystemSetting( "APPNAME", "Your app name here" ),
+			appName                  : getSystemSetting( "APPNAME", "soapbox" ),
 			eventName                : "event",
 			// Development Settings
 			reinitPassword           : "",

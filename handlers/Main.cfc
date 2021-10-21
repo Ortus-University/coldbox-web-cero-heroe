@@ -4,6 +4,7 @@ component extends="coldbox.system.EventHandler" {
 	 * Default Action
 	 */
 	function index( event, rc, prc ) {
+		prc.name = "balbino";
 		prc.welcomeMessage = "Welcome to ColdBox!";
 		event.setView( "main/index" );
 	}
