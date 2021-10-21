@@ -12,7 +12,7 @@
 
 			<div class="col-lg-7 col-md-6">
 				<h1 class="display-3">
-					#prc.welcomeMessage#
+					#prc.name#, #prc.welcomeMessage#
 				</h1>
 				<div class="badge badge-info mb-2">
 					<strong>#getColdBoxSetting( "version" )# (#getColdBoxSetting( "suffix" )#)</strong>
