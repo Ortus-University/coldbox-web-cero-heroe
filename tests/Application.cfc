@@ -12,6 +12,8 @@ component{
 	this.sessionTimeout 	= createTimeSpan( 0, 0, 15, 0 );
 	this.applicationTimeout = createTimeSpan( 0, 0, 15, 0 );
 	this.setClientCookies 	= true;
+	this.datasource 		= "soapbox";
+	this.defaultdatasource 	= "soapbox";
 
 	// Create testing mapping
 	this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );

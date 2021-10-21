@@ -15,7 +15,7 @@
  *	* renderResults : Render back the results of the event
  *******************************************************************************/
  component
- extends   ="coldbox.system.testing.BaseTestCase"
+ extends   ="tests.resources.BaseIntegrationSpec"
  appMapping="/root"
 {
 
