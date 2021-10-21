@@ -1,4 +1,7 @@
 ﻿<cfoutput>
+
+	<cfdump var="#prc.userList#">
+
 	<div class="jumbotron mt-sm-5 p-4">
 		<div class="row">
 			<div class="col-lg-5 col-md-6">
@@ -12,7 +15,7 @@
 
 			<div class="col-lg-7 col-md-6">
 				<h1 class="display-3">
-					#prc.name#, #prc.welcomeMessage#
+					#prc.userList[2].username# #prc.name#, #prc.welcomeMessage#
 				</h1>
 				<div class="badge badge-info mb-2">
 					<strong>#getColdBoxSetting( "version" )# (#getColdBoxSetting( "suffix" )#)</strong>

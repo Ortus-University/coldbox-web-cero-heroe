@@ -1,9 +1,12 @@
 component extends="coldbox.system.EventHandler" {
 
+	property name="userService" inject="UserService";
+
 	/**
 	 * Default Action
 	 */
 	function index( event, rc, prc ) {
+		prc.userList = userService.list();
 		prc.name = "balbino";
 		prc.welcomeMessage = "Welcome to ColdBox!";
 		event.setView( "main/index" );
