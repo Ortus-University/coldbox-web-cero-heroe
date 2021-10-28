@@ -20,12 +20,12 @@ component{
 		event.setView( "registration/new" );
 	}
 
+	// create / save User
 	function create( event, rc, prc ) {
-		var generatedKey = userService.create( rc.email, rc.username, rc.password );
-		getInstance( "messageBox@cbmessagebox" )
-			.success( "The user #encodeForHTML( rc.username )# with id: #generatedKey# was created!" );
-
+		prc.oUser = userService.create( populateModel( "User" ) );
+		auth().login( prc.oUser );
 		relocate( uri = "/" );
 	}
+
 
 }

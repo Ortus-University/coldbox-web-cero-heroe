@@ -27,7 +27,13 @@ component{
 			};
 		} );
 
-		resources( "registration" );
+		resources("registration");
+
+		route( "/login" )
+			.withAction( { "POST" = "create", "GET" = "new" } )
+			.toHandler( "sessions" );
+
+		delete( "/logout" ).to( "sessions.delete" );
 
 		// Conventions based routing
 		route( ":handler/:action?" ).end();

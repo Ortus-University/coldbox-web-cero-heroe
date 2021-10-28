@@ -3,8 +3,10 @@
  */
 component singleton accessors="true"{
 
-	// Properties
-	property name="bcrypt" inject="@BCrypt";
+    // To populate objects from data
+    property name="populator" inject="wirebox:populator";
+    // For encryption
+    property name="bcrypt" inject="@BCrypt";
 
 
 	/**
@@ -36,28 +38,48 @@ component singleton accessors="true"{
 	*
 	* @return The created id of the user
 	*/
-	numeric function create(
-		required string email,
-		required string username,
-		required string password
-	){
+	function create( required user ){
 		queryExecute(
 			"
-				INSERT INTO `users` ( `email`, `username`, `password` )
-				VALUES ( ?, ?, ? )
+				INSERT INTO `users` (`email`, `username`, `password`)
+				VALUES (?, ?, ?)
 			",
 			[
-				arguments.email,
-				arguments.username,
-				bcrypt.hashPassword( arguments.password )
+				user.getEmail(),
+				user.getUsername(),
+				bcrypt.hashPassword( user.getPassword() )
 			],
-			{
-				result : 'local.result'
-			}
+			{ result = "local.result" }
 		);
-
-		return local.result.generatedkey;
+		user.setId( result.generatedKey );
+		return user;
 	}
+
+    // What is this FUNKYNESS!!!
+    User function new() provider="User";
+
+	User function retrieveUserById( required id ) {
+        return populator.populateFromQuery(
+            new(),
+            queryExecute( "SELECT * FROM `users` WHERE `id` = ?", [ arguments.id ] )
+        );
+    }
+
+    User function retrieveUserByUsername( required username ) {
+        return populator.populateFromQuery(
+            new(),
+            queryExecute( "SELECT * FROM `users` WHERE `username` = ?", [ arguments.username ] )
+        );
+    }
+
+    boolean function isValidCredentials( required username, required password ) {
+		var oUser = retrieveUserByUsername( arguments.username );
+        if( !oUser.isLoaded() ){
+            return false;
+		}
+
+        return bcrypt.checkPassword( arguments.password, oUser.getPassword() );
+    }
 
 
 }

@@ -28,12 +28,14 @@
         "cfmigrations":"modules/cfmigrations/",
         "route-visualizer":"modules/route-visualizer/",
         "BCrypt":"modules/BCrypt/",
-        "cbmessagebox":"modules/cbmessagebox/"
+        "cbmessagebox":"modules/cbmessagebox/",
+        "cbsecurity":"modules/cbsecurity/"
     },
     "dependencies":{
         "coldbox":"^6.0.0",
         "BCrypt":"^3.0.1+34",
-        "cbmessagebox":"^4.0.0+58"
+        "cbmessagebox":"^4.0.0+58",
+        "cbsecurity":"^2.14.0+9"
     },
     "scripts":{},
     "cfmigrations":{
