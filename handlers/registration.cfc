@@ -22,10 +22,8 @@ component{
 
 	function create( event, rc, prc ) {
 		var generatedKey = userService.create( rc.email, rc.username, rc.password );
-		flash.put( "notice", {
-			type : "success",
-			message : "The user #encodeForHTML( rc.username )# with id: #generatedKey# was created!"
-		} );
+		getInstance( "messageBox@cbmessagebox" )
+			.success( "The user #encodeForHTML( rc.username )# with id: #generatedKey# was created!" );
 
 		relocate( uri = "/" );
 	}
