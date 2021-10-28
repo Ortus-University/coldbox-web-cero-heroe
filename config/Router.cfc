@@ -27,6 +27,8 @@ component{
 			};
 		} );
 
+		resources( "registration" );
+
 		// Conventions based routing
 		route( ":handler/:action?" ).end();
 	}

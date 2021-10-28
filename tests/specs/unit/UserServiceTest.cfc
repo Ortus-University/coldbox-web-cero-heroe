@@ -23,13 +23,23 @@ component extends="coldbox.system.testing.BaseModelTest" model="models.UserServi
 
 	/*********************************** BDD SUITES ***********************************/
 
-	function run(){
+    function run() {
 
-		describe( "UserService Suite", function(){
+        describe( "User Service", function() {
+
+			it( "can be created", function(){
+				expect( model ).toBeComponent();
+			});
+
+			it( "can list all users", function() {
+				var aResults = model.list();
+				expect( aResults ).toBeArray();
+			} );
 
 
-		});
+        } );
 
-	}
+    }
+
 
 }
